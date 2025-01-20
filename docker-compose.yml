@@ -1,0 +1,41 @@
+services:
+  # rindexer:
+  #   build: .
+  #   extra_hosts:
+  #     - "host.docker.internal:host-gateway"
+  #   volumes:
+  #     - .:/app # Mount the current directory to /app in the container
+  #   depends_on:
+  #     - rabbitmq
+  #     - postgresql
+  #   entrypoint:
+  #     - /app/start.sh
+
+  postgresql:
+    image: postgres:16
+    shm_size: 1g
+    hostname: postgres
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - ${POSTGRES_PORT:-5440}:5432
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - POSTGRES_DB=${POSTGRES_DB:-postgres}
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@localhost:${POSTGRES_PORT:-5440}/${POSTGRES_DB:-postgres}
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    restart: always
+    hostname: rabbitmq
+    ports:
+      - "5672:5672" # AMQP port
+      - "15672:15672" # Management UI
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+
+volumes:
+  postgres_data:

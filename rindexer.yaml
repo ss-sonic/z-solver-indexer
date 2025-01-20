@@ -1,0 +1,264 @@
+name: test
+project_type: no-code
+networks:
+- name: base
+  chain_id: 8453
+  kind: Hypersync
+  rpc: https://base.rpc.hypersync.xyz
+  max_block_range: 1000
+- name: arbitrum
+  chain_id: 42161
+  kind: Hypersync
+  # rpc: https://arbitrum-mainnet.infura.io/v3/98ffcff76c6549e2a5a643c5e553837e
+  max_block_range: 1000
+  rpc: https://arbitrum.rpc.hypersync.xyz
+  # ws: wss://arbitrum-mainnet.infura.io/ws/v3/98ffcff76c6549e2a5a643c5e553837e
+  # enable_native_transfers: true
+- name: ethereum
+  chain_id: 1
+  kind: Hypersync
+  rpc: https://eth.rpc.hypersync.xyz
+  # ws: wss://mainnet.infura.io/ws/v3/3ec3f9ce9bae4bb5857b004395f17cff
+  # enable_native_transfers: true
+- name: polygon
+  chain_id: 137
+  kind: Hypersync
+  # rpc: https://polygon.rpc.hypersync.xyz
+  rpc: https://polygon-mainnet.core.chainstack.com/846c42b6196f2a98e4f4a40d61c5b20d
+- name: optimism
+  chain_id: 10
+  kind: Hypersync
+  # rpc: https://optimism.rpc.hypersync.xyz
+  rpc: https://opt-mainnet.g.alchemy.com/v2/2EyhZ4tgp9K95etDpOF0wF7ye7HgFjdJ
+- name: avalanche
+  chain_id: 43114
+  kind: Hypersync
+  rpc: https://avalanche.rpc.hypersync.xyz
+- name: bsc
+  chain_id: 56
+  kind: Hypersync
+  rpc: https://bsc.rpc.hypersync.xyz
+- name: mode
+  chain_id: 34443
+  kind: Hypersync
+  rpc: https://mode.rpc.hypersync.xyz
+- name: blast
+  chain_id: 81457
+  kind: Hypersync
+  rpc: https://blast.rpc.hypersync.xyz
+- name: boba
+  chain_id: 288
+  kind: Hypersync
+  rpc: https://boba.rpc.hypersync.xyz
+- name: zkSync
+  chain_id: 324
+  kind: Hypersync
+  rpc: https://zksync.rpc.hypersync.xyz
+- name: scroll
+  chain_id: 534352
+  kind: Hypersync
+  rpc: https://scroll.rpc.hypersync.xyz
+- name: linea
+  chain_id: 59144
+  kind: Hypersync
+  rpc: https://linea.rpc.hypersync.xyz
+- name: mantle
+  chain_id: 5000
+  kind: Hypersync
+  rpc: https://mantle.rpc.hypersync.xyz
+- name: manta
+  chain_id: 169
+  kind: Hypersync
+  rpc: https://manta.rpc.hypersync.xyz
+- name: metis
+  chain_id: 1088
+  kind: Hypersync
+  rpc: https://metis.rpc.hypersync.xyz
+- name: rootstock
+  chain_id: 30
+  kind: Hypersync
+  rpc: https://rootstock.rpc.hypersync.xyz
+- name: saakuru
+  chain_id: 7225878
+  kind: Hypersync
+  rpc: https://saakuru.rpc.hypersync.xyz
+- name: Tangle
+  chain_id: 5845
+  kind: Hypersync
+  rpc: https://tangle.rpc.hypersync.xyz
+- name: fuji
+  chain_id: 43113
+  kind: Hypersync
+  rpc: https://avalanche-fuji.blockpi.network/v1/rpc/d10cf9fa32a7e5298839890d9a15d341ee4fa570
+- name: holesky
+  chain_id: 17000
+  kind: Hypersync
+  rpc: https://ethereum-holesky.blockpi.network/v1/rpc/af524eebf9bf7e73f1b38522c9dd98618cbaf28e
+storage:
+  postgres:
+    enabled: true
+contracts:
+- name: ERC20
+  details:
+  # - network: arbitrum
+  #   address: 
+  #   - 0xaf88d065e77c8cC2239327C5EDb3A432268e5831
+  #   - 0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9
+  #   start_block: 167321449
+  #   indexed_filters:
+  #   - event_name: Transfer
+  #     indexed_1:
+  #     - 0x00051d55999c7cd91B17Af7276cbecD647dBC000
+  
+  # - network: arbitrum
+  #   include_tx_data: true
+  #   address:
+  #   - 0xaf88d065e77c8cC2239327C5EDb3A432268e5831
+  #   - 0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9
+  #   start_block: 291008648
+  #   indexed_filters:
+  #   - event_name: Transfer
+  #     indexed_2:
+  #     # - 0xef300fb4243a0ff3b90c8ccfa1264d78182adaa4
+  #     # - 0xf70da97812CB96acDF810712Aa562db8dfA3dbEF
+  #     - 0x3c02f2f28025ccB7897cB6E54F8cE88Ce8c72E20
+  # - network: base
+  #   include_tx_data: true
+  #   address: 
+  #   - 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
+  #   start_block: 24508709
+  #   indexed_filters:
+  #   - event_name: Transfer
+  #     indexed_2:
+  #     # - 0x0fa205c0446cd9eedcc7538c9e24bc55ad08207f
+  #     - 0x3c02f2f28025ccB7897cB6E54F8cE88Ce8c72E20
+  # - network: polygon
+  #   include_tx_data: true
+  #   address: 
+  #   - 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359
+  #   start_block: 66294780
+  #   indexed_filters:
+  #   - event_name: Transfer
+  #     indexed_2:
+  #     # - 0x0fa205c0446cd9eedcc7538c9e24bc55ad08207f
+  #     - 0x3c02f2f28025ccB7897cB6E54F8cE88Ce8c72E20
+  # - network: optimism
+  #   include_tx_data: true
+  #   address: 
+  #   - 0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85
+  #   start_block: 130197979
+  #   indexed_filters:
+  #   - event_name: Transfer
+  #     indexed_2:
+  #     # - 0x0fa205c0446cd9eedcc7538c9e24bc55ad08207f
+  #     - 0x3c02f2f28025ccB7897cB6E54F8cE88Ce8c72E20
+  - network: holesky
+    include_tx_data: true
+    address: 
+    - 0x9cCad419A897FD2D4C7aC34B0D0B89bE1E9A6f8b
+    start_block: 3132009
+    indexed_filters:
+    - event_name: Transfer
+      indexed_2:
+      # - 0x0fa205c0446cd9eedcc7538c9e24bc55ad08207f
+      - 0x25FA874601756484e51807b14Cc8114812F342BE
+  - network: fuji
+    include_tx_data: true
+    address: 
+    - 0x16a2779b4F52424C89CbC897E53e5e954A25E72F
+    start_block: 37518092
+    indexed_filters:
+    - event_name: Transfer
+      indexed_2:
+      # - 0x0fa205c0446cd9eedcc7538c9e24bc55ad08207f
+      - 0x25FA874601756484e51807b14Cc8114812F342BE
+  abi: ./abis/USDC.abi.json
+  include_events:
+  - Transfer
+  streams: 
+    rabbitmq: 
+      url: ${RABBITMQ_URL}
+      exchanges: 
+        - exchange: transfer
+          exchange_type: direct
+          routing_key: nitro-pro
+          networks: 
+            - holesky
+            - fuji
+          events: 
+            - event_name: Transfer
+
+        # - exchange: transfer
+        #   exchange_type: direct
+        #   routing_key: polygon
+        #   networks: 
+        #     - polygon
+        #   events: 
+        #     - event_name: Transfer
+        # - exchange: transfer
+        #   exchange_type: direct
+        #   routing_key: optimism
+        #   networks: 
+        #     - optimism
+        #   events: 
+        #     - event_name: Transfer
+# - name: Forwarder
+#   details:
+#   - network: arbitrum
+#     address: 0xef300fb4243a0ff3b90c8ccfa1264d78182adaa4
+#     start_block: 167321448
+#   - network: base
+#     address: 0x0fa205c0446cd9eedcc7538c9e24bc55ad08207f
+#     start_block: 8831830
+#   - network: ethereum
+#     address: 0xc21e4ebd1d92036cb467b53fe3258f219d909eb9
+#     start_block: 19062090
+#   - network: polygon
+#     address: 0x1396f41d89b96eaf29a7ef9ee01ad36e452235ae
+#     start_block: 51964810
+#   - network: optimism
+#     address: 0x8201c02d4ab2214471e8c3ad6475c8b0cd9f2d06
+#     start_block: 114426800
+#   - network: avalanche
+#     address: 0xf9f4c3dc7ba8f56737a92d74fd67230c38af51f2
+#     start_block: 39963830
+#   - network: bsc
+#     address: 0x260687ebc6c55dadd578264260f9f6e968f7b2a5
+#     start_block: 34976960
+#   - network: mode
+#     address: 0xc21e4ebd1d92036cb467b53fe3258f219d909eb9
+#     start_block: 5071940
+#   - network: blast
+#     address: 0x97eec1c29f745dc7c267f90292aa663d997a601d
+#     start_block: 2319900
+#   - network: boba
+#     address: 0xc21e4ebd1d92036cb467b53fe3258f219d909eb9
+#     start_block: 1122834
+#   - network: zkSync
+#     address: 0x8b6f1c18c866f37e6ea98aa539e0c117e70178a2
+#     start_block: 24267740
+#   - network: scroll
+#     address: 0x01b4ce0d48ce91eb6bcaf5db33870c65d641b894
+#     start_block: 2193830
+#   - network: linea
+#     address: 0x8c4acd74ff4385f3b7911432fa6787aa14406f8b
+#     start_block: 1523860
+#   - network: mantle
+#     address: 0x21c1e74caadf990e237920d5515955a024031109
+#     start_block: 28994039
+#   - network: manta
+#     address: 0x21c1e74caadf990e237920d5515955a024031109
+#     start_block: 1127240
+#   - network: metis
+#     address: 0xc21e4ebd1d92036cb467b53fe3258f219d909eb9
+#     start_block: 15539950
+#   - network: saakuru
+#     address: 0x21c1e74caadf990e237920d5515955a024031109
+#     start_block: 24675924
+#   abi: ./abis/Forwarder.abi.json
+#   include_events:
+#   - FundsDeposited
+#   - FundsDepositedWithMessage
+#   - DepositInfoUpdate
+#   - FundsPaid
+#   - FundsPaidWithMessage
